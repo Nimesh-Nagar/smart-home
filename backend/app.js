@@ -4,6 +4,11 @@ import dotenv from 'dotenv'
 import pool from './config/db.config.js'
 import initSchema from './models/schema.js' 
 
+import deviceRoutes from './routes/devices.js'
+import manufRoutes from './routes/manufacturers.js'
+import roleRoutes from './routes/roles.js'
+import roomsRoutes from './routes/rooms.js'
+import userRoutes from './routes/users.js'
 
 dotenv.config()
 const app = express();
@@ -24,11 +29,17 @@ app.get('/', (req,res) => {
     res.send("<h1> Smart Home Dashboard </h1>")
 }); 
 
+app.use('/api/devices', deviceRoutes);
+app.use('/api/manufacturers', manufRoutes);
+app.use('/api/roles', roleRoutes);
+app.use('/api/rooms', roomsRoutes);
+app.use('/api/users', userRoutes);
+
 //product route
 app.use(errorHandlerMiddleware);
 app.use(notFound)
 
-// init DB Schema
+// initilise DataBase Schema
 initSchema();
 
 const start = async () => {
