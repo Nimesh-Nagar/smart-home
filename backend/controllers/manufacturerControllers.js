@@ -19,6 +19,7 @@ export const createManufacturer = async (req, res, next) => {
     res.status(201).json(result.rows[0]);
   } 
   catch (error) {
+    console.log("[ERROR] : ", error);
     next(error);
   }
 };

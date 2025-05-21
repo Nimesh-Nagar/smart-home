@@ -5,6 +5,7 @@ import pool from './config/db.config.js'
 import initSchema from './models/schema.js' 
 
 import deviceRoutes from './routes/devices.js'
+import deviceTypeRoutes from './routes/device_types.js'
 import manufRoutes from './routes/manufacturers.js'
 import roleRoutes from './routes/roles.js'
 import roomsRoutes from './routes/rooms.js'
@@ -30,6 +31,7 @@ app.get('/', (req,res) => {
 }); 
 
 app.use('/api/devices', deviceRoutes);
+app.use('/api/deviceType', deviceTypeRoutes);
 app.use('/api/manufacturers', manufRoutes);
 app.use('/api/roles', roleRoutes);
 app.use('/api/rooms', roomsRoutes);
