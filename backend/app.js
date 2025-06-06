@@ -11,6 +11,8 @@ import roleRoutes from './routes/roles.js'
 import roomsRoutes from './routes/rooms.js'
 import userRoutes from './routes/users.js'
 
+import authRoutes from './routes/auth.js';
+
 dotenv.config()
 const app = express();
 
@@ -37,6 +39,7 @@ app.use('/api/roles', roleRoutes);
 app.use('/api/rooms', roomsRoutes);
 app.use('/api/users', userRoutes);
 
+app.use('/api/auth', authRoutes);
 //product route
 app.use(errorHandlerMiddleware);
 app.use(notFound)
